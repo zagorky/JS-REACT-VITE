@@ -1,0 +1,13 @@
+.profile{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    
+}
+
+.userPic{
+    margin-right: 10px;
+}
+
+.userName{
+    color: cornflowerblue;
+}
