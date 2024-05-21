@@ -1,5 +1,9 @@
 export default interface ProductItem {
   id: number;
   name: string;
-  price: number;
+  img?: string;
+  price: string;
+  discount?: string;
+  rating?: number;
+  isFavorite?: boolean;
 }

@@ -1,9 +1,9 @@
 import MyButton from "./components/MyButton/MyButton.tsx";
+import Product from "./components/Product/Product.tsx";
 import Profile from "./components/Profile/Profile.tsx";
+import ProductList from "./components/ProductList/ProductList.tsx";
 
 function App() {
-  // const isLoggedIn = false;
-
   return (
     <>
       <h1> Пары по REACT</h1>
@@ -11,7 +11,6 @@ function App() {
       <p>Добавляем кнопку:</p>
       <MyButton />
       <p>Добавляем данные пользователя: </p>
-      {/* {isLoggedIn ? <Profile /> : <div>Авторизуйтесь</div>} */}
       <Profile />
       <h2>Урок 2</h2>
       <code>
@@ -35,6 +34,10 @@ function App() {
           <li>3. /isLoggedIn && Profile /</li>
         </ul>
       </code>
+
+      <Product />
+
+      <ProductList />
     </>
   );
 }
