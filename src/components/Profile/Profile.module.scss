@@ -1,11 +1,15 @@
 .profile{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) ;
-    
+    display: flex;
+    align-items: center;
+    justify-content:start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .userPic{
     margin-right: 10px;
+    border-radius: 50%;
+    width:150px;
+    height:150px;
 }
 
 .userName{
