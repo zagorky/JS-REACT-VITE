@@ -1,0 +1,17 @@
+.button{
+    height: 60px;
+    width: 100%;    
+    text-align: center;
+    color: #ffffff;
+    background-color:#B75E46;
+    border: 1px solid rgba(35, 28, 28, 0.256);
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 20px ;
+    &:hover{
+        background-color: #406ae6;
+        transition: background-color 500ms ease ;
+
+    }
+}

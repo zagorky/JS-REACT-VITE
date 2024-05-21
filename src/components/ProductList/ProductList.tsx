@@ -1,4 +1,5 @@
-import ProductItem from "../../types/product.ts";
+import { ProductItem } from "../../types/product.ts";
+// import Product from "../Product/Product.tsx";
 import Row from "../Row/Row.tsx";
 
 export default function ProductList() {
@@ -22,6 +23,7 @@ export default function ProductList() {
 
   const list = products.map((product) => {
     return (
+      // <Product product={product} />
       <p key={product.id}>
         {" "}
         Название:

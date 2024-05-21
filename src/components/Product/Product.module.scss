@@ -1,9 +1,39 @@
-.products{
-    width: 50%;
-    height: auto;
-    img{
-        width: 30%;
-        height: auto;
-    }
-    
+
+h2{
+    text-align: center;       
+    font-family:sans-serif;
+    font-size: 36px;
 }
+.products{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    border-color: rgba(0, 0, 0, 0.212);
+    border: rgba(0, 0, 0, 0.212) solid 1px;
+    background-color:#eeeeee;
+    p{
+        color: #000000;
+        font-family: sans-serif;
+    }
+    :nth-child(1){
+        font-weight: 600 ;
+        color: #000000;
+
+    }
+    &:hover{
+        background-color: rgba(64, 143, 254, 0.493);
+        transition: background-color 500ms ease ;
+    }
+}
+.fav{
+    width:10%;
+    height: 10%;
+    cursor: pointer;
+}
+
+.itemImg{
+    width: 90%;
+    border-radius: 50%;
+    cursor: pointer;
+    }

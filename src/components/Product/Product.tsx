@@ -1,26 +1,49 @@
+import MyButton from "../MyButton/MyButton";
 import classes from "./Product.module.scss";
+import { ProductItem } from "../../types/product.ts";
+interface ProductProps {
+  product: ProductItem;
+}
 
-export default function Product() {
-  const product = {
-    id: 1,
-    name: "Наручные часы мужские SKMEI 1251",
-    img: "https://ir-2.ozone.ru/s3/multimedia-2/wc1000/6197515010.jpg",
-    price: "8165 руб.",
-    discount: "90%",
-    rating: 4.7,
-    isFavorite: true,
-  };
-  if (!product.isFavorite) {
-    return null;
+const Product = (props: ProductProps) => {
+  const { product } = props;
+  function fav() {
+    if (product.isFavorite === true)
+      return (
+        <img
+          className={classes.fav}
+          src="https://img.icons8.com/parakeet-line/48/thumb-up.png"
+          alt="thumb-up"
+        />
+      );
+    else
+      return (
+        <img
+          className={classes.fav}
+          src="https://img.icons8.com/parakeet-line/48/thumbs-down.png"
+          alt="thumbs-down"
+        />
+      );
   }
+
   return (
-    <div className={classes.products}>
-      <p>Название товара: {product.name}</p>
-      <img src={product.img} alt="Изображение товара" />
-      <p>Стоимость: {product.price}</p>
-      <p>Скидка: {product.discount}</p>
-      <p>Рейтинг: {product.rating}</p>
-      <p>Артикул: {product.id}</p>
+    <div>
+      <div key={product.id} className={classes.products}>
+        <p>{product.name}</p>
+        <img
+          className={classes.itemImg}
+          src={product.img}
+          alt="Изображение товара"
+        />
+        <p>Стоимость: {product.price}</p>
+        <p>Скидка: {product.discount}</p>
+        <p>Рейтинг: {product.rating}</p>
+        <p>Артикул: {product.id}</p>
+        <p>Избранное:{fav()}</p>
+      </div>
+      <MyButton />
     </div>
   );
-}
+};
+
+export default Product;
