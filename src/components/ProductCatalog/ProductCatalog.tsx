@@ -3,6 +3,7 @@ import Product from "../Product/Product";
 import { product } from "../../Data/data";
 
 export default function ProductCatalog() {
+
   return (
     <>
       <div>
