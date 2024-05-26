@@ -3,7 +3,6 @@ import classes from "./MyButton.module.scss";
 
 interface MyButtonProps {
   children?: React.ReactNode;
-  // message: string;
   onClick?: () => void;
 }
 

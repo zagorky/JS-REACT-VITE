@@ -1,23 +1,33 @@
 import MyButton from "../MyButton/MyButton";
 import classes from "./Product.module.scss";
-import { ProductItem } from "../../types/product.ts";
-import { useState } from "react";
+import { ProductItem, CartItem } from "../../types/product.ts";
+import { Dispatch, SetStateAction, useState } from "react";
 import CountItems from "../CountItems/CountItems.tsx";
+
 interface ProductProps {
   product: ProductItem;
+  setCart: Dispatch<SetStateAction<CartItem>>;
 }
 
 const Product = (props: ProductProps) => {
   const [count, setCount] = useState(0);
 
   const addCart = () => {
-    setCount(count + 1);
+    const nextState = count + 1;
+    setCount(nextState);
+
+    setCart((prevState) => {
+      return {
+        ...prevState,
+        items: [...prevState.items, { ...product, count: prevState }],
+      };
+    });
   };
   const removeCart = () => {
-    setCount(count - 1);
+    setCount((prevState) => prevState - 1);
   };
 
-  const { product } = props;
+  const { product, setCart } = props;
   function fav() {
     if (product.isFavorite === true)
       return (

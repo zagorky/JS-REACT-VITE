@@ -1,8 +1,7 @@
 import { ProductItem } from "../../types/product.ts";
-// import Product from "../Product/Product.tsx";
 import Row from "../Row/Row.tsx";
 
-export default function ProductList() {
+const ProductList = () => {
   const products: ProductItem[] = [
     {
       name: "товар 1",
@@ -23,9 +22,7 @@ export default function ProductList() {
 
   const list = products.map((product) => {
     return (
-      // <Product product={product} />
       <p key={product.id}>
-        {" "}
         Название:
         {product.name}, стоимость: {product.price}
       </p>
@@ -37,4 +34,6 @@ export default function ProductList() {
       <Row>{list}</Row>
     </div>
   );
-}
+};
+
+export default ProductList;

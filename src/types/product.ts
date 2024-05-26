@@ -7,3 +7,10 @@ export interface ProductItem {
   rating?: number;
   isFavorite?: boolean;
 }
+
+interface AddedItems extends ProductItem {
+  count: number;
+}
+export interface CartItem {
+  items: AddedItems[];
+}
