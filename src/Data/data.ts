@@ -6,7 +6,7 @@ export const product = [
     price: "8165 руб.",
     discount: "90%",
     rating: 4.7,
-    isFavorite: true,
+    isFavorite: false,
   },
   {
     id: 211,

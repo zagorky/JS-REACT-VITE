@@ -1,6 +1,6 @@
-import classes from "./Cart.module.scss";
-import { CartItem } from "../../types/product";
-import { FC } from "react";
+import classes from "./Cart.module.scss"
+import { CartItem } from "../../types/product"
+import { FC } from "react"
 
 interface CartItemProps {
   cart: CartItem;

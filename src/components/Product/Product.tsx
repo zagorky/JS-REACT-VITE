@@ -12,6 +12,8 @@ interface ProductProps {
 const Product = (props: ProductProps) => {
   const [count, setCount] = useState(0);
 
+  const { product, setCart } = props;
+
   const addCart = () => {
     const nextState = count + 1;
     setCount(nextState);
@@ -19,7 +21,7 @@ const Product = (props: ProductProps) => {
     setCart((prevState) => {
       return {
         ...prevState,
-        items: [...prevState.items, { ...product, count: prevState }],
+        items: [...prevState.items, { ...product, count: nextState }],
       };
     });
   };
@@ -27,24 +29,8 @@ const Product = (props: ProductProps) => {
     setCount((prevState) => prevState - 1);
   };
 
-  const { product, setCart } = props;
   function fav() {
-    if (product.isFavorite === true)
-      return (
-        <img
-          className={classes.fav}
-          src="https://img.icons8.com/parakeet-line/48/thumb-up.png"
-          alt="thumb-up"
-        />
-      );
-    else
-      return (
-        <img
-          className={classes.fav}
-          src="https://img.icons8.com/parakeet-line/48/thumbs-down.png"
-          alt="thumbs-down"
-        />
-      );
+    return product.isFavorite ? "В избранном" : "Добавить в избранное";
   }
 
   return (
@@ -61,7 +47,7 @@ const Product = (props: ProductProps) => {
           <p>Скидка: {product.discount}</p>
           <p>Рейтинг: {product.rating}</p>
           <p>Артикул: {product.id}</p>
-          <p>Избранное:{fav()}</p>
+          <button>{fav()}</button>
         </div>
         <MyButton onClick={addCart}>Добавить</MyButton>
       </div>
