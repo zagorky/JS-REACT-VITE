@@ -1,4 +1,4 @@
-import { Reducer, useReducer, useState } from "react";
+import { useState } from "react";
 import { ImmerReducer, useImmerReducer } from "use-immer";
 
 interface CounterType {
