@@ -1,5 +1,5 @@
-import { ProductItem } from "../../types/product.ts";
-import Row from "../Row/Row.tsx";
+import { ProductItem } from "@/types";
+import { Row } from "@/components";
 
 const ProductList = () => {
   const products: ProductItem[] = [

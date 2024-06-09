@@ -1,14 +1,14 @@
 import classes from "./ProductCatalog.module.scss";
-import Product from "../Product/Product";
+import { Product } from "@/components";
 import { product } from "../../data/data";
-import { Dispatch, SetStateAction } from "react";
-import { CartItem } from "../../types/product";
+import { CartItem } from "@/types";
+import { Updater } from "use-immer";
 interface ProductCatalogProps {
-  setCart: Dispatch<SetStateAction<CartItem>>;
+  updateCart: Updater<CartItem>;
 }
 
 const ProductCatalog = (props: ProductCatalogProps) => {
-  const { setCart } = props;
+  const { updateCart } = props;
 
   return (
     <>
@@ -17,7 +17,7 @@ const ProductCatalog = (props: ProductCatalogProps) => {
         <div className={classes.catalog}>
           {product.map((product) => (
             <Product
-              setCart={setCart}
+              updateCart={updateCart}
               product={product}
               key={product.id}
               {...product}

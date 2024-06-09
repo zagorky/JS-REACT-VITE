@@ -1,32 +1,44 @@
-import MyButton from "../MyButton/MyButton";
+import { MyButton, CountItems } from "@/components";
 import classes from "./Product.module.scss";
-import { ProductItem, CartItem } from "../../types/product.ts";
-import { Dispatch, SetStateAction, useState } from "react";
-import CountItems from "../CountItems/CountItems.tsx";
+import { ProductItem, CartItem } from "@/types";
+import { useState } from "react";
+import { Updater } from "use-immer";
 
 interface ProductProps {
   product: ProductItem;
-  setCart: Dispatch<SetStateAction<CartItem>>;
+  updateCart: Updater<CartItem>;
 }
 
 const Product = (props: ProductProps) => {
   const [count, setCount] = useState(0);
 
-  const { product, setCart } = props;
+  const { product, updateCart } = props;
 
   const addCart = () => {
     const nextState = count + 1;
     setCount(nextState);
 
-    setCart((prevState) => {
-      return {
-        ...prevState,
-        items: [...prevState.items, { ...product, count: nextState }],
-      };
+    updateCart((draft) => {
+      const checkProduct = draft.items.find((item) => item.id === product.id);
+      if (checkProduct) {
+        checkProduct.count += 1;
+      } else {
+        draft.items.push({ ...product, count: 1 });
+      }
     });
   };
   const removeCart = () => {
-    setCount((prevState) => prevState - 1);
+    updateCart((draft) => {
+      const checkProduct = draft.items.find((item) => item.id === product.id);
+      if (checkProduct) {
+        checkProduct.count -= 1;
+      } else {
+        throw new Error("нельзя изменить то, чего нет в корзине");
+      }
+      if (checkProduct.count === 0) {
+        draft.items = draft.items.filter((item) => item.id !== product.id);
+      }
+    });
   };
 
   function fav() {
@@ -52,11 +64,7 @@ const Product = (props: ProductProps) => {
         <MyButton onClick={addCart}>Добавить</MyButton>
       </div>
       {count > 0 && (
-        <CountItems
-          count={count}
-          onDecrement={removeCart}
-          onIncrement={addCart}
-        />
+        <CountItems count={count} removeCart={removeCart} addCart={addCart} />
       )}
     </div>
   );

@@ -1,17 +1,17 @@
-import { useState } from "react";
-import Cart from "./components/Cart/Cart.tsx";
-import { CartItem } from "./types/product.ts";
-import ProductCatalog from "./components/ProductCatalog/ProductCatalog.tsx";
+import { CartItem } from "@/types";
+import { useImmer } from "use-immer";
+import { Cart, Counter, ProductCatalog } from "@/components";
 
 function App() {
-  const [cart, setCart] = useState<CartItem>({
+  const [cart, updateCart] = useImmer<CartItem>({
     items: [],
   });
 
   return (
     <>
-      <ProductCatalog setCart={setCart}></ProductCatalog>
+      <Counter />
       <Cart cart={cart} />
+      <ProductCatalog updateCart={updateCart} />
     </>
   );
 }

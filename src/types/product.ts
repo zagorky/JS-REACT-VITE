@@ -8,7 +8,7 @@ export interface ProductItem {
   isFavorite?: boolean;
 }
 
-interface AddedItems extends ProductItem {
+export interface AddedItems extends ProductItem {
   count: number;
 }
 export interface CartItem {

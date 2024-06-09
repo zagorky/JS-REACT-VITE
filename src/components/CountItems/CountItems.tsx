@@ -1,21 +1,21 @@
 import { FC } from "react";
-import MyButton from "../MyButton/MyButton";
+import { MyButton } from "@/components";
 
 interface CountItemsProps {
   count: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
+  addCart: () => void;
+  removeCart: () => void;
 }
 
 const CountItems: FC<CountItemsProps> = (props) => {
-  const { count, onIncrement, onDecrement } = props;
+  const { addCart, count, removeCart } = props;
 
   return (
     <div>
       <p>
-        Товаров в корзине :<MyButton onClick={onIncrement}> + </MyButton>
+        Товаров в корзине :<MyButton onClick={addCart}> + </MyButton>
         {count}
-        <MyButton onClick={onDecrement}> - </MyButton>
+        <MyButton onClick={removeCart}> - </MyButton>
       </p>
     </div>
   );

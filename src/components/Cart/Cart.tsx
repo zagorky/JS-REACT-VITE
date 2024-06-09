@@ -1,6 +1,5 @@
-import classes from "./Cart.module.scss"
-import { CartItem } from "../../types/product"
-import { FC } from "react"
+import { CartItem } from "@/types";
+import { FC } from "react";
 
 interface CartItemProps {
   cart: CartItem;
@@ -12,13 +11,20 @@ const Cart: FC<CartItemProps> = (props) => {
   } = props;
 
   return (
-    <ul className={classes.cartContainer}>
-      {items.map((item) => (
-        <li>
-          {item.name} - {item.count}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h2>Корзина</h2>
+      {items.length === 0 ? (
+        <p>Ваша корзина пуста</p>
+      ) : (
+        <ul>
+          {items.map((item) => (
+            <li key={item.id}>
+              {item.name} - {item.count} шт.
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 
