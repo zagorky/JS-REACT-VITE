@@ -1,22 +1,25 @@
 import { FC, ReactNode, createContext } from "react";
+import { useImmerReducer } from "use-immer";
+import { reducer } from "./reducer";
+import { initialState } from "./initialState";
+import { CounterContextType } from "./types";
 
 interface CounterProviderProps {
   children: ReactNode;
 }
 
-interface CounterType {
-  value: number;
-}
-
-export const CounetrContext = createContext<CounterType>({ value: 0 });
-
-const initialValue: CounterType = { value: 10 };
+export const CounterContext = createContext<CounterContextType>({
+  state: initialState,
+  dispatch: () => {},
+});
 
 const CounterProvider: FC<CounterProviderProps> = ({ children }) => {
+  const [state, dispatch] = useImmerReducer(reducer, initialState);
+
   return (
-    <CounetrContext.Provider value={initialValue}>
+    <CounterContext.Provider value={{ state, dispatch }}>
       {children}
-    </CounetrContext.Provider>
+    </CounterContext.Provider>
   );
 };
 

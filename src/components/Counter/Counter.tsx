@@ -1,52 +1,11 @@
-import { useState } from "react";
-import { ImmerReducer, useImmerReducer } from "use-immer";
-
-interface CounterType {
-  counter: number;
-}
-
-type CounterAction =
-  | { type: ActiveType.ADDCART; payload: number }
-  | { type: ActiveType.REMOVECART; payload: number };
-
-enum ActiveType {
-  ADDCART = "addcart",
-  REMOVECART = "removecart",
-}
-
-const reducer: ImmerReducer<CounterType, CounterAction> = (
-  draftState,
-  action
-) => {
-  switch (action.type) {
-    case ActiveType.ADDCART:
-      draftState.counter += action.payload;
-      break;
-    case ActiveType.REMOVECART:
-      draftState.counter -= action.payload;
-      break;
-    default:
-      break;
-  }
-};
-
-const initialState: CounterType = {
-  counter: 0,
-};
-
-const addCart = (value: number) => ({
-  type: ActiveType.ADDCART,
-  payload: value,
-});
-
-const removeCart = (value: number) => ({
-  type: ActiveType.REMOVECART,
-  payload: value,
-});
+import { CounterContext } from "@/context";
+import { addCart, removeCart } from "@/context/Counter/actions";
+import { useContext, useState } from "react";
 
 const Counter = () => {
   const [value, setValue] = useState<number>(0);
-  const [state, dispatch] = useImmerReducer(reducer, initialState);
+
+  const { dispatch, state } = useContext(CounterContext);
 
   const handleAddCart = () => {
     dispatch(addCart(value));
