@@ -1,4 +1,14 @@
-.p {
+.cartContainer {
   display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.063);
+  width: 100%;
+  max-width: 1120px;
+  padding: 20px;
+  margin: auto;
+  p,
+  ul {
+    font-size: 20px;
+    font-family: sans-serif;
+  }
 }

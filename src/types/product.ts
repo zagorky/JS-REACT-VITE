@@ -2,10 +2,11 @@ export interface ProductItem {
   id: number;
   name: string;
   img?: string;
-  price: string;
+  price: number;
   discount?: string;
   rating?: number;
   isFavorite?: boolean;
+  count?: number;
 }
 
 export interface AddedItems extends ProductItem {

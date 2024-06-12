@@ -1,44 +1,27 @@
 import { MyButton, CountItems } from "@/components";
 import classes from "./Product.module.scss";
-import { ProductItem, CartItem } from "@/types";
-import { useState } from "react";
-import { Updater } from "use-immer";
+import { ProductItem } from "@/types";
+import { CartContext } from "@/context";
+import { useContext } from "react";
+import { changeCount } from "@/context/Cart/actions";
 
 interface ProductProps {
   product: ProductItem;
-  updateCart: Updater<CartItem>;
 }
 
 const Product = (props: ProductProps) => {
-  const [count, setCount] = useState(0);
+  const { product } = props;
 
-  const { product, updateCart } = props;
+  const { cart, dispatch } = useContext(CartContext);
+
+  const count = cart.items.find((prod) => prod.id === product.id)?.count || 0;
 
   const addCart = () => {
-    const nextState = count + 1;
-    setCount(nextState);
-
-    updateCart((draft) => {
-      const checkProduct = draft.items.find((item) => item.id === product.id);
-      if (checkProduct) {
-        checkProduct.count += 1;
-      } else {
-        draft.items.push({ ...product, count: 1 });
-      }
-    });
+    dispatch(changeCount(product, count + 1));
   };
+
   const removeCart = () => {
-    updateCart((draft) => {
-      const checkProduct = draft.items.find((item) => item.id === product.id);
-      if (checkProduct) {
-        checkProduct.count -= 1;
-      } else {
-        throw new Error("нельзя изменить то, чего нет в корзине");
-      }
-      if (checkProduct.count === 0) {
-        draft.items = draft.items.filter((item) => item.id !== product.id);
-      }
-    });
+    dispatch(changeCount(product, count - 1));
   };
 
   function fav() {

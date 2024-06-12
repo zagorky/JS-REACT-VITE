@@ -11,8 +11,9 @@ export type CounterAction =
 export enum ActiveType {
   ADDCART = "addcart",
   REMOVECART = "removecart",
+  DELETEITEMS = "deleteItems",
+  REMOVEITEM = "removeItem",
 }
-
 
 export interface CounterContextType {
   state: CounterType;

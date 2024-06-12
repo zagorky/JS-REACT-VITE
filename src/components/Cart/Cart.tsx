@@ -1,28 +1,47 @@
-import { CartItem } from "@/types";
-import { FC } from "react";
+import { FC, useContext } from "react";
 import classes from "./Cart.module.scss";
-interface CartItemProps {
-  cart: CartItem;
-}
+import { CartContext } from "@/context/Cart/CartProvider";
+import CountItems from "../CountItems/CountItems";
+import { ProductItem } from "@/types";
+import { changeCount } from "@/context/Cart/actions";
 
-const Cart: FC<CartItemProps> = (props) => {
-  const {
-    cart: { items },
-  } = props;
+const Cart: FC = () => {
+  const { cart, dispatch } = useContext(CartContext);
+
+  const addCart = (product: ProductItem, count: number) => {
+    dispatch(changeCount(product, count + 1));
+  };
+
+  const removeCart = (product: ProductItem, count: number) => {
+    dispatch(changeCount(product, count - 1));
+  };
 
   return (
     <div className={classes.cart}>
       <h2>Корзина</h2>
-      {items.length === 0 ? (
-        <p className={classes.p}>Ваша корзина пуста</p>
+      {cart.items.length === 0 ? (
+        <div className={classes.cartContainer}>
+          <p className={classes.p}>Ваша корзина пуста</p>
+        </div>
       ) : (
-        <ul>
-          {items.map((item) => (
-            <li key={item.id}>
-              {item.name} - {item.count} шт.
-            </li>
-          ))}
-        </ul>
+        <div className={classes.cartContainer}>
+          <ul>
+            {cart.items.map(
+              (item) =>
+                item.count && (
+                  <li key={item.id}>
+                    {item.name} - {item.price} руб.{" "}
+                    <CountItems
+                      count={item.count || 0}
+                      removeCart={() => removeCart(item, item.count)}
+                      addCart={() => addCart(item, item.count)}
+                    />
+                    <p>Итого -{item.price * (item.count || 0)}</p>
+                  </li>
+                )
+            )}
+          </ul>
+        </div>
       )}
     </div>
   );
