@@ -1,6 +1,5 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import { MyButton } from "@/components";
-import { CounterContext } from "@/context/Counter/CounterProvider";
 
 interface CountItemsProps {
   count: number;
@@ -10,13 +9,12 @@ interface CountItemsProps {
 
 const CountItems: FC<CountItemsProps> = (props) => {
   const { addCart, count, removeCart } = props;
-  const { state } = useContext(CounterContext);
 
   return (
     <div>
       <p>
         Товаров в корзине :<MyButton onClick={addCart}> + </MyButton>
-        {count} {state.counter}
+        {count}
         <MyButton onClick={removeCart}> - </MyButton>
       </p>
     </div>

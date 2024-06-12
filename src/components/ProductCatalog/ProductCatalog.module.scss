@@ -1,10 +1,9 @@
-.catalog{
-    display: grid;
-    height: auto;
-    display: grid;
-    place-content: center;place-content: center;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 18px;
-    grid-row-gap: 20px;
-    width: 100%;
+.catalog {
+  height: auto;
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 18px;
+  grid-row-gap: 20px;
+  width: 100%;
 }
