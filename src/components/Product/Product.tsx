@@ -23,6 +23,11 @@ const Product = (props: ProductProps) => {
   const removeCart = () => {
     dispatch(changeCount(product, count - 1));
   };
+  const changeCartCount: React.ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    dispatch(changeCartCount(product, +event.target.value));
+  };
 
   function fav() {
     return product.isFavorite ? "В избранном" : "Добавить в избранное";
@@ -47,7 +52,12 @@ const Product = (props: ProductProps) => {
         <MyButton onClick={addCart}>Добавить</MyButton>
       </div>
       {count > 0 && (
-        <CountItems count={count} removeCart={removeCart} addCart={addCart} />
+        <CountItems
+          count={count}
+          removeCart={removeCart}
+          addCart={addCart}
+          handleChangeCartCount={changeCartCount}
+        />
       )}
     </div>
   );
