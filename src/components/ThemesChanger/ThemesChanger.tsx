@@ -29,7 +29,6 @@ const ThemesChanger = () => {
           id="lightTheme"
           value={ThemeVar.light}
           onChange={handleChange}
-          defaultChecked
         />
         Светлая тема
       </label>

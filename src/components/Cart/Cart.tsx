@@ -43,7 +43,7 @@ const Cart: FC = () => {
                         changeCartCount(item, +event.target.value)
                       }
                     />
-                    <p>Итого -{item.price * (item.count || 0)}</p>
+                    {/* <p>Итого -{item.price * (item.count || 0)}</p> */}
                   </li>
                 )
             )}

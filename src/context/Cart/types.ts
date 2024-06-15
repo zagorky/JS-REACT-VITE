@@ -25,8 +25,3 @@ export enum ActionTypes {
   DELETEITEMS = "deleteItems",
   REMOVEITEM = "removeItem",
 }
-
-// export interface CounterContextType {
-//   state: CartTypes;
-//   dispatch: Dispatch<CartActions>;
-// }

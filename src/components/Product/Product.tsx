@@ -26,7 +26,7 @@ const Product = (props: ProductProps) => {
   const changeCartCount: React.ChangeEventHandler<HTMLInputElement> = (
     event
   ) => {
-    dispatch(changeCartCount(product, +event.target.value));
+    dispatch(changeCount(product, +event.target.value));
   };
 
   function fav() {

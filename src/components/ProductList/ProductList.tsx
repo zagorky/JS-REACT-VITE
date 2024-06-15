@@ -1,24 +1,16 @@
 import { ProductItem } from "@/types";
 import { Row } from "@/components";
+import { useEffect, useState } from "react";
 
 const ProductList = () => {
-  const products: ProductItem[] = [
-    {
-      name: "товар 1",
-      price: "100",
-      id: 11,
-    },
-    {
-      name: "товар 2",
-      price: "150",
-      id: 22,
-    },
-    {
-      name: "товар 3",
-      price: "200",
-      id: 33,
-    },
-  ];
+  const [products, setProducts] = useState<ProductItem[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((e) => console.error(e));
+  }, []);
 
   const list = products.map((product) => {
     return (
