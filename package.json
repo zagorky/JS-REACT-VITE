@@ -12,6 +12,8 @@
     "json:server": "npx json-server db.json"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.45.0",
+    "axios": "^1.7.2",
     "immer": "^10.1.1",
     "json-server": "^1.0.0-beta.1",
     "react": "^18.2.0",
