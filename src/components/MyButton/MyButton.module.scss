@@ -1,16 +1,55 @@
 .button {
-  height: 60px;
-  max-width: 100%;
-  text-align: center;
-  color: #ffffff;
-  background-color: #b75e46;
-  border: 1px solid rgba(35, 28, 28, 0.256);
-  cursor: pointer;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: 600;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 25px;
+  margin: 0 15px 15px 0;
+  outline: none;
+  border: 1px solid #ffffff34;
+  border-radius: 10px;
+  height: 46px;
+  line-height: 46px;
   font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #444;
+  background-color: #c4c9e3;
+  box-shadow:
+    0 4px 6px rgb(65 132 144 / 10%),
+    0 1px 3px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
+  &:focus-visible {
+    border: 1px solid #4c51f9;
+    outline: none;
+  }
   &:hover {
-    background-color: #406ae6;
-    transition: background-color 500ms ease;
+    transition: all 0.2s;
+    box-shadow:
+      0 7px 14px rgb(65 132 144 / 10%),
+      0 3px 6px rgb(0 0 0 / 8%);
+    background-color: #ffffff;
+  }
+  &:active {
+    background-color: #f1bb57;
+  }
+  &:disabled {
+    background-color: #eee;
+    border-color: #eee;
+    color: #444;
+    cursor: not-allowed;
   }
 }
+
+// .button:active {
+//   background-color: #808080;
+// }
+// .button:disabled {
+//   background-color: #eee;
+//   border-color: #eee;
+//   color: #444;
+//   cursor: not-allowed;
+// }

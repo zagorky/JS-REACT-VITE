@@ -29,9 +29,9 @@ const Product = (props: ProductProps) => {
     dispatch(changeCount(product, +event.target.value));
   };
 
-  function fav() {
-    return product.isFavorite ? "В избранном" : "Добавить в избранное";
-  }
+  // function fav() {
+  //   return product.isFavorite ? "В избранном" : "Добавить в избранное";
+  // }
 
   return (
     <div>
@@ -43,13 +43,12 @@ const Product = (props: ProductProps) => {
             src={product.img}
             alt="Изображение товара"
           />
-          <p>Стоимость: {product.price}</p>
+          <p>Стоимость: {product.price} руб.</p>
           {/* <p>Скидка: {product.discount}</p> */}
           <p>Рейтинг: {product.rating}</p>
           <p>Артикул: {product.id}</p>
-          <button>{fav()}</button>
+          <MyButton onClick={addCart}>Добавить</MyButton>
         </div>
-        <MyButton onClick={addCart}>Добавить</MyButton>
       </div>
       {count > 0 && (
         <CountItems

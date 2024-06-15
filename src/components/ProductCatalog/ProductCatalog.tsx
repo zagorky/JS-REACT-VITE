@@ -6,11 +6,18 @@ import { useEffect, useState } from "react";
 const ProductCatalog = () => {
   const [products, setProducts] = useState<ProductItem[]>([]);
 
+  const getProduct = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/products");
+      const data = await response.json();
+      setProducts(data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   useEffect(() => {
-    fetch("http://localhost:3000/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((e) => console.error(e));
+    getProduct();
   }, []);
 
   return (

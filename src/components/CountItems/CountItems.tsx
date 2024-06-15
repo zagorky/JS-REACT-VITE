@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { MyButton } from "@/components";
+import classes from "./CounterItems.module.scss";
 
 interface CountItemsProps {
   count: number;
@@ -13,11 +14,12 @@ const CountItems: FC<CountItemsProps> = (props) => {
 
   return (
     <div>
-      <p>
-        Товаров в корзине :<MyButton onClick={addCart}> + </MyButton>
+      <p>Товаров в корзине :</p>
+      <div className={classes.container}>
+        <MyButton onClick={addCart}> + </MyButton>
         <input type="number" value={count} onChange={handleChangeCartCount} />
         <MyButton onClick={removeCart}> - </MyButton>
-      </p>
+      </div>
     </div>
   );
 };
