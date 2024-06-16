@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 111,
+      "id": "111",
       "name": "Наручные часы мужские SKMEI 1251",
       "img": "https://ir-2.ozone.ru/s3/multimedia-2/wc1000/6197515010.jpg",
       "price": 8165,
@@ -13,7 +13,7 @@
       "isFavorite": false
     },
     {
-      "id": 211,
+      "id": "211",
       "name": "Наручные мужские часы KASBRAND",
       "img": "https://ir.ozone.ru/s3/multimedia-1-j/wc1000/6906904147.jpg",
       "price": 5000,
@@ -25,7 +25,7 @@
       "isFavorite": true
     },
     {
-      "id": 311,
+      "id": "311",
       "name": "EEiss Мужские наручные часы Электронные",
       "img": "https://ir.ozone.ru/s3/multimedia-o/wc1000/6686125296.jpg",
       "price": 1500,

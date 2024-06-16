@@ -9,9 +9,10 @@ const ThemesChanger = () => {
     setTheme(event.target.value as ThemeVar);
 
   return (
-    <div className={classes.input}>
-      <label htmlFor="darkTheme">
+    <div className={classes.inputCont}>
+      <label className={classes.label} htmlFor="darkTheme">
         <input
+          className={classes.input}
           checked={theme === ThemeVar.dark}
           type="radio"
           name="theme"
@@ -21,8 +22,9 @@ const ThemesChanger = () => {
         />
         Темная тема
       </label>
-      <label htmlFor="lightTheme">
+      <label className={classes.label} htmlFor="lightTheme">
         <input
+          className={classes.input}
           checked={theme === ThemeVar.light}
           type="radio"
           name="theme"

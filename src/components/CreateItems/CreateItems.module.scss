@@ -1,3 +1,29 @@
+.form {
+  display: block;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.addItemsContainer {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.063);
+  width: 100%;
+  max-width: 1120px;
+  padding: 20px;
+  margin: auto;
+}
+
+.input {
+  width: 70%;
+  max-width: 800px;
+  resize: vertical;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
 .button {
   display: flex;
   align-items: center;
@@ -45,13 +71,3 @@
     cursor: not-allowed;
   }
 }
-
-// .button:active {
-//   background-color: #808080;
-// }
-// .button:disabled {
-//   background-color: #eee;
-//   border-color: #eee;
-//   color: #444;
-//   cursor: not-allowed;
-// }
