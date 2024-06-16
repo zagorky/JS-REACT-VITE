@@ -44,7 +44,7 @@ const Product = (props: ProductProps) => {
             alt="Изображение товара"
           />
           <p>Стоимость: {product.price} руб.</p>
-          {/* <p>Скидка: {product.discount}</p> */}
+          <p>Скидка: {product.discount?.value} %</p>
           <p>Рейтинг: {product.rating}</p>
           <p>Артикул: {product.id}</p>
           <MyButton onClick={addCart}>Добавить</MyButton>

@@ -3,7 +3,7 @@
     {
       "id": "111",
       "name": "Наручные часы мужские SKMEI 1251",
-      "img": "https://ir-2.ozone.ru/s3/multimedia-2/wc1000/6197515010.jpg",
+      "img": "https://main-cdn.sbermegamarket.ru/big1/hlr-system/214/156/886/511/117/11/600004929632b0.jpeg",
       "price": 8165,
       "discount": {
         "type": "percent",
@@ -35,6 +35,56 @@
       },
       "rating": 3.8,
       "isFavorite": false
+    },
+    {
+      "id": "d71d",
+      "name": "Мужские часы nhekzkz-nhjkjkj",
+      "img": "https://time-logo.ru/images/detailed/3/volans-g2.jpg",
+      "price": 10200,
+      "discount": {
+        "value": 10
+      },
+      "rating": 4.9
+    },
+    {
+      "id": "195f",
+      "name": "BICOLOR МУЖСКИЕ ЧАСЫ SLIMLINE 1320.0.39.45B",
+      "img": "https://nikawatches.ru/upload/iblock/a97/okjjpgctu89n8y0j7ff1smho9mx4ae39.jpg",
+      "price": 71100,
+      "discount": {
+        "value": 15
+      },
+      "rating": 4.6
+    },
+    {
+      "id": "3133",
+      "name": "Наручные часы Volans A04-US",
+      "img": "https://time-logo.ru/images/thumbnails/340/340/detailed/3/volans-s2.jpg",
+      "price": 1170,
+      "discount": {
+        "value": 7
+      },
+      "rating": 4
+    },
+    {
+      "id": "9a32",
+      "name": "Часы наручные kjlkjsldf",
+      "img": "https://main-cdn.sbermegamarket.ru/big1/hlr-system/214/156/886/511/117/11/600004929632b0.jpeg",
+      "price": 123456,
+      "discount": {
+        "value": 12
+      },
+      "rating": 2.9
+    },
+    {
+      "id": "f6a4",
+      "name": "Наручные мужские часы KASBRAND",
+      "img": "https://ir.ozone.ru/s3/multimedia-1-j/wc1000/6906904147.jpg",
+      "price": 54321,
+      "discount": {
+        "value": 43
+      },
+      "rating": 5
     }
   ]
 }
