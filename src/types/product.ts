@@ -12,6 +12,20 @@ export interface ProductItem {
   count?: number;
 }
 
+export interface ProductResponse {
+  products: ProductItem[];
+  pagination: PaginationType;
+}
+
+export interface PaginationType {
+  first: number;
+  prev: number | null;
+  next: number | null;
+  last: number;
+  pages: number;
+  items: number;
+}
+
 export type discountType = "percent" | "fix";
 
 export type ProductStoreRequest = Omit<ProductItem, "id" | "count">;
