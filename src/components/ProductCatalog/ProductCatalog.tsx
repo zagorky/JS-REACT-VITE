@@ -1,10 +1,12 @@
 import classes from "./ProductCatalog.module.scss";
-import { Product } from "@/components";
+import { Pagination, Product } from "@/components";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/service/products";
-import Pagination from "../Pagination/Pagination";
+import { useState } from "react";
 
 const ProductCatalog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
   const { data, isError, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
@@ -20,13 +22,18 @@ const ProductCatalog = () => {
     <>
       <div>
         <h2>Каталог товаров</h2>
+
         <div className={classes.catalog}>
           {data.products.map((product) => (
             <Product product={product} key={product.id} />
           ))}
         </div>
       </div>
-      <Pagination pagination={data.pagination} />
+      <Pagination
+        pagination={data.pagination}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </>
   );
 };

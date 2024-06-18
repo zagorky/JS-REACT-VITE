@@ -7,3 +7,4 @@ export { default as ProductCatalog } from "./ProductCatalog/ProductCatalog";
 export { default as Profile } from "./Profile/Profile";
 export { default as Row } from "./Row/Row";
 export { default as Counter } from "./Counter/Counter";
+export { default as Pagination } from "./Pagination/Pagination";
