@@ -5,10 +5,11 @@ import { getProducts } from "@/service/products";
 import { useState } from "react";
 
 const ProductCatalog = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [perPage, setPerPage] = useState<number>(3);
 
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["products"],
+    queryKey: ["products", currentPage, perPage],
     queryFn: getProducts,
   });
 
@@ -22,7 +23,21 @@ const ProductCatalog = () => {
     <>
       <div>
         <h2>Каталог товаров</h2>
-
+        <div>
+          <p>Отображать на странице</p>
+          <select
+            value={perPage}
+            name=""
+            id=""
+            onChange={(event) => {
+              setPerPage(+event.target.value);
+            }}
+          >
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+          </select>
+        </div>
         <div className={classes.catalog}>
           {data.products.map((product) => (
             <Product product={product} key={product.id} />

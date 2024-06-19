@@ -11,17 +11,34 @@ interface PaginationProps {
 
 const Pagination: FC<PaginationProps> = (props) => {
   const {
-    pagination: { last, next, first, pages, prev, items },
+    pagination: { next, pages, prev },
     currentPage,
     setCurrentPage,
   } = props;
 
+  const handleClick = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <nav aria-label="Пример навигации по страницам">
       <ul className="pagination justify-content-center">
+        <PaginationItem onClick={handleClick} numberPage={prev}>
+          Назад
+        </PaginationItem>
+
         {createArrayRange(pages).map((page) => (
-          <PaginationItem active={page === currentPage}>{page}</PaginationItem>
+          <PaginationItem
+            numberPage={page}
+            onClick={handleClick}
+            active={page === currentPage}
+          >
+            {page}
+          </PaginationItem>
         ))}
+        <PaginationItem onClick={handleClick} numberPage={next}>
+          Вперед
+        </PaginationItem>
       </ul>
     </nav>
   );

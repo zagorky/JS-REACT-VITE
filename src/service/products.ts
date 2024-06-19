@@ -1,11 +1,11 @@
 import { api } from "@/app/api";
 import { ProductResponse, ProductStoreRequest } from "@/types/product";
 
-export const getProducts = async () => {
+export const getProducts = async ({ queryKey }) => {
   const { data } = await api.get<ProductResponse>("/products", {
     params: {
-      _page: 1,
-      _per_page: 3,
+      _page: queryKey[1],
+      _per_page: queryKey[2],
     },
     transformResponse: (data) => {
       const dataJson = JSON.parse(data);
