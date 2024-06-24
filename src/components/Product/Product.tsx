@@ -4,6 +4,7 @@ import { ProductItem } from "@/types";
 import { CartContext } from "@/context";
 import { useContext } from "react";
 import { changeCount } from "@/context/Cart/actions";
+import { Link } from "react-router-dom";
 
 interface ProductProps {
   product: ProductItem;
@@ -29,15 +30,11 @@ const Product = (props: ProductProps) => {
     dispatch(changeCount(product, +event.target.value));
   };
 
-  // function fav() {
-  //   return product.isFavorite ? "В избранном" : "Добавить в избранное";
-  // }
-
   return (
     <div>
       <div>
         <div key={product.id} className={classes.products}>
-          <p>{product.name}</p>
+          <Link to={`/products/${product.id}`}>{product.name}</Link>
           <img
             className={classes.itemImg}
             src={product.img}

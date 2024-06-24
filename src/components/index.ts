@@ -8,3 +8,5 @@ export { default as Profile } from "./Profile/Profile";
 export { default as Row } from "./Row/Row";
 export { default as Counter } from "./Counter/Counter";
 export { default as Pagination } from "./Pagination/Pagination";
+export { default as Header } from "./Header/Header";
+export { default as Footer } from "./Footer/Footer";
