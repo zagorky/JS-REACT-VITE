@@ -1,5 +1,9 @@
 import { api } from "@/app/api";
-import { ProductResponse, ProductStoreRequest } from "@/types/product";
+import {
+  ProductItem,
+  ProductResponse,
+  ProductStoreRequest,
+} from "@/types/product";
 
 export const getProducts = async ({ queryKey }) => {
   const { data } = await api.get<ProductResponse>("/products", {
@@ -22,6 +26,14 @@ export const getProducts = async ({ queryKey }) => {
       };
     },
   });
+  return data;
+};
+
+export const getProdById = async (id?: string) => {
+  if (!id) {
+    return {};
+  }
+  const { data } = await api.get<ProductItem>(`/products/${id}`);
   return data;
 };
 

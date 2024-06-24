@@ -4,7 +4,8 @@ import { ProductItem } from "@/types";
 import { CartContext } from "@/context";
 import { useContext } from "react";
 import { changeCount } from "@/context/Cart/actions";
-import { Link } from "react-router-dom";
+import { Link, generatePath } from "react-router-dom";
+import { RouteVar } from "@/router/constants";
 
 interface ProductProps {
   product: ProductItem;
@@ -34,7 +35,9 @@ const Product = (props: ProductProps) => {
     <div>
       <div>
         <div key={product.id} className={classes.products}>
-          <Link to={`/products/${product.id}`}>{product.name}</Link>
+          <Link to={generatePath(RouteVar.itemDetails, { id: product.id })}>
+            {product.name}
+          </Link>
           <img
             className={classes.itemImg}
             src={product.img}

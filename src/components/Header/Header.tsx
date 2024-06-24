@@ -1,4 +1,6 @@
+import { RouteVar } from "@/router/constants";
 import { Link } from "react-router-dom";
+import Nav from "../Nav/Nav";
 
 const Header = () => {
   return (
@@ -7,7 +9,7 @@ const Header = () => {
         <div className="row flex-nowrap justify-content-between align-items-center">
           <div className="col-4 pt-1"></div>
           <div className="col-4 text-center">
-            <Link className="blog-header-logo text-dark" to="/">
+            <Link className="blog-header-logo text-dark" to={RouteVar.home}>
               Пары по REACT
             </Link>
           </div>
@@ -34,20 +36,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-      <div className="nav-scroller py-1 mb-2">
-        <nav className="nav d-flex justify-content-between">
-          <Link className="p-2 link-secondary" to="/">
-            Главная{" "}
-          </Link>
-          <Link className="p-2 link-secondary" to="/products">
-            Каталог товаров{" "}
-          </Link>
-          <Link className="p-2 link-secondary" to="/add-item">
-            Добавить товар{" "}
-          </Link>
-        </nav>
-      </div>
+      <Nav />
     </div>
   );
 };

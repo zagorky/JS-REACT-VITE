@@ -29,6 +29,7 @@ const Pagination: FC<PaginationProps> = (props) => {
 
         {createArrayRange(pages).map((page) => (
           <PaginationItem
+            key={page}
             numberPage={page}
             onClick={handleClick}
             active={page === currentPage}

@@ -1,11 +1,9 @@
+import Nav from "../Nav/Nav";
+
 const Footer = () => {
   return (
     <footer className="container">
-      <p>
-        Пары по реакту
-        <a href="https://getbootstrap.com/">Bootstrap</a> by{" "}
-        <a href="https://twitter.com/mdo">@mdo</a>.
-      </p>
+      <Nav></Nav>
       <p>
         <a href="#">Наверх</a>
       </p>
