@@ -1,0 +1,13 @@
+.publicLayout {
+  display: flex;
+  flex-direction: column;
+  max-width: 1120px;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  .main {
+    flex-grow: 1;
+    margin: auto;
+    min-height: 100vh;
+  }
+}
